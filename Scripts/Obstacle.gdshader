@@ -13,7 +13,6 @@ void fragment() {
 	if (color == 2) {
 		COLOR.b = 1.0;
 	}
-	
 	if (color == 3) {
 		COLOR.r = 1.0;
 		COLOR.g = 1.0;
