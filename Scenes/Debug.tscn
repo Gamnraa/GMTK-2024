@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://civshdmxkibkj"]
+[gd_scene load_steps=5 format=3 uid="uid://civshdmxkibkj"]
 
 [ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="1_41c0u"]
 [ext_resource type="Script" path="res://Scripts/Debug.gd" id="1_yb2f0"]
 [ext_resource type="PackedScene" uid="uid://2pucwjb3by2t" path="res://Nodes/Obstacle.tscn" id="2_lweux"]
+[ext_resource type="PackedScene" uid="uid://dmobv4nr66fml" path="res://Nodes/Paddle.tscn" id="4_g2gd7"]
 
 [node name="Debug" type="Node2D"]
 script = ExtResource("1_yb2f0")
 
 [node name="Ball" parent="." instance=ExtResource("1_41c0u")]
-position = Vector2(522, -432)
+position = Vector2(687, -682)
 
 [node name="Obstacle" parent="." instance=ExtResource("2_lweux")]
 position = Vector2(288, 648)
 
 [node name="Obstacle2" parent="." instance=ExtResource("2_lweux")]
-position = Vector2(524, 468)
+position = Vector2(1206, 38)
 rotation = -0.596356
 color = 1
 
@@ -22,6 +23,13 @@ color = 1
 position = Vector2(55, -29)
 rotation = 0.028228
 color = 1
+
+[node name="Paddle" parent="." instance=ExtResource("4_g2gd7")]
+position = Vector2(457, 445)
+
+[node name="Paddle2" parent="." instance=ExtResource("4_g2gd7")]
+position = Vector2(665, 445)
+side = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(575, 325)
