@@ -6,7 +6,7 @@
 radius = 80.0
 
 [node name="Ball" type="RigidBody2D"]
-mass = 4.0
+mass = 12.0
 gravity_scale = 1.15
 
 [node name="Sprite" type="Sprite2D" parent="."]
