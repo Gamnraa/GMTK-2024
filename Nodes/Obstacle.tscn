@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://2pucwjb3by2t"]
 
 [node name="Obstacle" type="AnimatableBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
