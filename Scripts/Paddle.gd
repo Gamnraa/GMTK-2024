@@ -23,7 +23,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is RigidBody2D and not $AnimationPlayer.is_playing():
 		print("activate paddle")
-		$Timer.wait_time = randf_range(0.0, 0.34)
+		$Timer.wait_time = randf_range(0.15, 0.34)
 		$Timer.start()
 
 
