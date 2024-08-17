@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://2pucwjb3by2t"]
+[gd_scene load_steps=2 format=3 uid="uid://2pucwjb3by2t"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_waf74"]
 
 [node name="Obstacle" type="AnimatableBody2D"]
+script = ExtResource("1_waf74")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
