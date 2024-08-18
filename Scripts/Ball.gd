@@ -16,3 +16,4 @@ func launch(force):
 	print(force)
 	apply_impulse(force)
 	Global.is_waiting_for_ball = false
+	Global.balls_active = 1
