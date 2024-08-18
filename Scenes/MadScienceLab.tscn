@@ -10,7 +10,7 @@ position = Vector2(361, 321)
 rotation = 0.0890118
 
 [node name="Ball" parent="." instance=ExtResource("2_smw1m")]
-position = Vector2(412, 10)
+position = Vector2(369, 2)
 freeze = false
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -24,7 +24,9 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is RigidBody2D: pass #shrink or grow the ball
+	if body is RigidBody2D: 
+		if color == 0 and body.size < 4: body.new_size += 1
+		if color == 3 and body.size > 0: body.new.size -= 1
 
 func _on_color_signal():
 	$AnimationPlayer.play("Expand")
