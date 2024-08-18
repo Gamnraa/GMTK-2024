@@ -3,7 +3,7 @@ extends AnimatableBody2D
 @onready var beam = preload("res://Nodes/RayBeam.tscn")
 
 var modes = [0, 2] #grow, shrink
-var sprites = ["raygun-grow.png", "raygun_shrink.png"]
+var sprites = ["raygun-grow.png", "raygun-shrink.png"]
 var mode = 1
 @export var direction = -1
 
@@ -19,10 +19,12 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is RigidBody2D:
-		mode = wrapi(mode + 1, 0, 1)
+		mode = wrapi(mode + 1, 0, 2)
 		$Sprite.texture = load("res://Sprites/" + sprites[mode])
 		$DisableTimer.start()
-		$BeamTimer.start()
+		if $BeamTimer.is_stopped(): $BeamTimer.start()
+		
+		
 
 
 func _on_disable_timer_timeout():
