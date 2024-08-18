@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds1ek756kv0rc"]
+
+[ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
+[ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="2_smw1m"]
+
+[node name="MadScienceLab" type="Node2D"]
+
+[node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
+position = Vector2(361, 321)
+rotation = 0.0890118
+
+[node name="Ball" parent="." instance=ExtResource("2_smw1m")]
+position = Vector2(402, -126)
+freeze = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -600)
+offset = Vector2(575, 325)
+zoom = Vector2(0.3, 0.3)

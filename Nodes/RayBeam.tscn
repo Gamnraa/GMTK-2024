@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpdmqehy7su7i"]
+
+[ext_resource type="Script" path="res://Scripts/RayBeam.gd" id="1_7xiba"]
+[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_1qsow"]
+[ext_resource type="Texture2D" uid="uid://cypgxyjceg6mk" path="res://Sprites/ray_beam-256.png" id="2_ciisb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey3vs"]
+shader = ExtResource("2_1qsow")
+shader_parameter/color = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ie8w"]
+size = Vector2(400, 256)
+
+[node name="RayBeam" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_7xiba")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ey3vs")
+texture = ExtResource("2_ciisb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0ie8w")

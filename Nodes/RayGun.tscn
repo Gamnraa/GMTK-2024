@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0d46735tgsur"]
+
+[ext_resource type="Script" path="res://Scripts/RayGun.gd" id="1_btpab"]
+[ext_resource type="Texture2D" uid="uid://cbkmwspdr8s0q" path="res://Sprites/raygun-shrink.png" id="2_px72o"]
+
+[node name="RayGun" type="AnimatableBody2D"]
+script = ExtResource("1_btpab")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_px72o")
+
+[node name="BeamSpawnPoint" type="Node2D" parent="Sprite"]
+position = Vector2(-200, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-130, 0, -60, -50, 33, -97, 113, -97, 97, -73, 130, -20, 130, 130, 60, 130, -20, 60, -60, 60)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(1.11, 1.11)
+polygon = PackedVector2Array(-130, 0, -60, -50, 33, -97, 113, -97, 97, -73, 130, -20, 130, 130, 60, 130, -20, 60, -60, 60)
+
+[node name="DisableTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="BeamTimer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DisableTimer" to="." method="_on_disable_timer_timeout"]
+[connection signal="timeout" from="BeamTimer" to="." method="_on_beam_timer_timeout"]
