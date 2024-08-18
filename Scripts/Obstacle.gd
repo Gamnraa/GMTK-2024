@@ -3,7 +3,6 @@ extends AnimatableBody2D
 @export var color: int
 @export_file var sprite
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if sprite != "" and sprite != null:
@@ -19,5 +18,4 @@ func _process(delta):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "Expand": $AnimationPlayer.play("Shrink")
