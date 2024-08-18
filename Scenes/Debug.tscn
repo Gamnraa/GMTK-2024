@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://civshdmxkibkj"]
+[gd_scene load_steps=10 format=3 uid="uid://civshdmxkibkj"]
 
 [ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="1_41c0u"]
 [ext_resource type="Script" path="res://Scripts/Debug.gd" id="1_yb2f0"]
@@ -6,30 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://dmobv4nr66fml" path="res://Nodes/Paddle.tscn" id="4_g2gd7"]
 [ext_resource type="PackedScene" uid="uid://cty625ei6euq3" path="res://Nodes/Wall.tscn" id="5_42r4l"]
 [ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Circle.tscn" id="6_5u6k2"]
+[ext_resource type="PackedScene" uid="uid://c0optkbcgwkkb" path="res://Nodes/Triangle.tscn" id="6_ibj4d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cei2g"]
 friction = 0.5
 bounce = 0.44
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ql8x"]
+size = Vector2(1150, 200)
+
 [node name="Debug" type="Node2D"]
 script = ExtResource("1_yb2f0")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -600)
+offset = Vector2(575, 325)
+zoom = Vector2(0.35, 0.35)
+
 [node name="Ball" parent="." instance=ExtResource("1_41c0u")]
-position = Vector2(659, -676)
-
-[node name="ObstacleY2" parent="." instance=ExtResource("2_lweux")]
-position = Vector2(0, 325)
-rotation = 0.610865
-
-[node name="ObstacleY1" parent="." instance=ExtResource("2_lweux")]
-position = Vector2(1146, 325)
-rotation = -0.610865
-
-[node name="ObstacleB1" parent="." instance=ExtResource("2_lweux")]
-position = Vector2(561, -15)
-rotation = 0.785398
-scale = Vector2(0.5, 0.5)
-color = 2
+position = Vector2(1213, 565)
 
 [node name="Paddle" parent="." instance=ExtResource("4_g2gd7")]
 position = Vector2(315, 445)
@@ -38,22 +33,35 @@ position = Vector2(315, 445)
 position = Vector2(730, 445)
 side = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -300)
-offset = Vector2(575, 325)
-zoom = Vector2(0.4, 0.4)
-
 [node name="Wall" parent="." instance=ExtResource("5_42r4l")]
-position = Vector2(-24, -950)
-scale = Vector2(1, 40)
+position = Vector2(-24, -670)
+scale = Vector2(1, 33)
 
 [node name="Wall2" parent="." instance=ExtResource("5_42r4l")]
-position = Vector2(1131, -950)
-scale = Vector2(1, 40)
+position = Vector2(1131, -550)
+scale = Vector2(1, 30)
+
+[node name="Wall3" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1255, -670)
+scale = Vector2(1, 33)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.684656, 0.407993, 0.976907, 1)
 polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="ObstacleB1" parent="." instance=ExtResource("2_lweux")]
+position = Vector2(561, -15)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+color = 2
+
+[node name="ObstacleY1" parent="." instance=ExtResource("6_ibj4d")]
+position = Vector2(1131, 354)
+rotation = -2.35619
+
+[node name="ObstacleY2" parent="." instance=ExtResource("2_lweux")]
+position = Vector2(0, 325)
+rotation = 0.610865
 
 [node name="ObstacleR" parent="." instance=ExtResource("6_5u6k2")]
 position = Vector2(550, -500)
@@ -84,3 +92,60 @@ position = Vector2(750, -300)
 scale = Vector2(0.33, 0.33)
 physics_material_override = SubResource("PhysicsMaterial_cei2g")
 color = 0
+
+[node name="Wall4" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1171, 610)
+scale = Vector2(3, 1)
+
+[node name="Wall5" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1235, -781)
+rotation = -0.174533
+scale = Vector2(1, 3)
+
+[node name="Wall6" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1187, -880)
+rotation = -0.436332
+scale = Vector2(1, 3)
+
+[node name="Wall7" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1116, -963)
+rotation = -0.698132
+scale = Vector2(1, 3)
+
+[node name="Wall8" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1022, -1014)
+rotation = -1.0472
+scale = Vector2(1, 3)
+
+[node name="Wall10" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(-3, -788)
+rotation = 0.174533
+scale = Vector2(1, 3)
+
+[node name="Wall11" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(48, -897)
+rotation = 0.436332
+scale = Vector2(1, 3)
+
+[node name="Wall12" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(125, -989)
+rotation = 0.698132
+scale = Vector2(1, 3)
+
+[node name="Wall13" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(229, -1049)
+rotation = 1.0472
+scale = Vector2(1, 3)
+
+[node name="Wall14" parent="." instance=ExtResource("5_42r4l")]
+position = Vector2(1041, -1049)
+rotation = 1.5708
+scale = Vector2(1, 20.3)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(575, 675)
+shape = SubResource("RectangleShape2D_6ql8x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
