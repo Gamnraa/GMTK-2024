@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://2pucwjb3by2t"]
+[gd_scene load_steps=17 format=3 uid="uid://c0optkbcgwkkb"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_waf74"]
-[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_3cftw"]
-[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="3_m4bif"]
+[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_yjmt8"]
+[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_o5n5l"]
+[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="3_2f1ss"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bb1dc"]
 friction = 0.5
@@ -10,10 +10,10 @@ bounce = 0.44
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iu7aa"]
 resource_local_to_scene = true
-shader = ExtResource("2_3cftw")
+shader = ExtResource("2_o5n5l")
 shader_parameter/color = 0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tfydy"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wltdn"]
 friction = 0.15
 bounce = 5.0
 
@@ -43,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0166667, 0.05, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [SubResource("PhysicsMaterial_bb1dc"), SubResource("PhysicsMaterial_tfydy"), SubResource("PhysicsMaterial_2eel6"), SubResource("PhysicsMaterial_xs8jp"), SubResource("PhysicsMaterial_minpn")]
+"values": [SubResource("PhysicsMaterial_bb1dc"), SubResource("PhysicsMaterial_wltdn"), SubResource("PhysicsMaterial_2eel6"), SubResource("PhysicsMaterial_xs8jp"), SubResource("PhysicsMaterial_minpn")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -135,15 +135,15 @@ _data = {
 
 [node name="Obstacle" type="AnimatableBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bb1dc")
-script = ExtResource("1_waf74")
+script = ExtResource("1_yjmt8")
 color = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_iu7aa")
-texture = ExtResource("3_m4bif")
+texture = ExtResource("3_2f1ss")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-65, -65, 65, -65, 65, 65, -65, 65)
+polygon = PackedVector2Array(-65, -65, 65, -65, 65, 65)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0

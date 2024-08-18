@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://2pucwjb3by2t"]
+[gd_scene load_steps=18 format=3 uid="uid://sglemheg4tg8"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_waf74"]
-[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_3cftw"]
-[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="3_m4bif"]
+[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_ctfdk"]
+[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_cv4xi"]
+[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="3_dk2dd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bb1dc"]
 friction = 0.5
@@ -10,26 +10,29 @@ bounce = 0.44
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iu7aa"]
 resource_local_to_scene = true
-shader = ExtResource("2_3cftw")
+shader = ExtResource("2_cv4xi")
 shader_parameter/color = 0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tfydy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6dll3"]
+radius = 80.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcc6s"]
 friction = 0.15
 bounce = 5.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2eel6"]
-friction = 0.5
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4jpk"]
+friction = 0.15
 bounce = 10.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xs8jp"]
-friction = 0.5
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vt5ww"]
+friction = 0.15
 bounce = 30.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_minpn"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgwdg"]
 friction = 0.15
 bounce = 0.72
 
-[sub_resource type="Animation" id="Animation_sn585"]
+[sub_resource type="Animation" id="Animation_34g37"]
 resource_name = "Expand"
 length = 0.166668
 step = 0.0166667
@@ -43,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0166667, 0.05, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [SubResource("PhysicsMaterial_bb1dc"), SubResource("PhysicsMaterial_tfydy"), SubResource("PhysicsMaterial_2eel6"), SubResource("PhysicsMaterial_xs8jp"), SubResource("PhysicsMaterial_minpn")]
+"values": [SubResource("PhysicsMaterial_bb1dc"), SubResource("PhysicsMaterial_fcc6s"), SubResource("PhysicsMaterial_s4jpk"), SubResource("PhysicsMaterial_vt5ww"), SubResource("PhysicsMaterial_sgwdg")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,38 +58,38 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(3, 3)]
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(4, 4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionPolygon2D:scale")
+tracks/2/path = NodePath("CollisionShape2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(3, 3)]
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(4, 4)]
 }
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xopxw"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5uile"]
 friction = 0.15
 bounce = 0.92
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a6wxs"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8dkt0"]
 friction = 0.15
 bounce = 0.72
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hhl76"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pg3wm"]
 friction = 0.15
 bounce = 0.65
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cyim1"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yp0f2"]
 friction = 0.15
 bounce = 0.44
 
-[sub_resource type="Animation" id="Animation_c7us8"]
+[sub_resource type="Animation" id="Animation_fyhlq"]
 resource_name = "Shrink"
 length = 0.333335
 step = 0.0166667
@@ -100,7 +103,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.15, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [SubResource("PhysicsMaterial_xopxw"), SubResource("PhysicsMaterial_a6wxs"), SubResource("PhysicsMaterial_hhl76"), SubResource("PhysicsMaterial_cyim1")]
+"values": [SubResource("PhysicsMaterial_5uile"), SubResource("PhysicsMaterial_8dkt0"), SubResource("PhysicsMaterial_pg3wm"), SubResource("PhysicsMaterial_yp0f2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -117,38 +120,37 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionPolygon2D:scale")
+tracks/2/path = NodePath("CollisionShape2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(5, 5), Vector2(2, 2), Vector2(0.8, 0.8)]
+"values": [Vector2(4, 4), Vector2(5, 5), Vector2(2, 2), Vector2(1.4, 1.4)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vq2wu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngxuy"]
 _data = {
-"Expand": SubResource("Animation_sn585"),
-"Shrink": SubResource("Animation_c7us8")
+"Expand": SubResource("Animation_34g37"),
+"Shrink": SubResource("Animation_fyhlq")
 }
 
 [node name="Obstacle" type="AnimatableBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bb1dc")
-script = ExtResource("1_waf74")
+script = ExtResource("1_ctfdk")
 color = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_iu7aa")
-texture = ExtResource("3_m4bif")
+texture = ExtResource("3_dk2dd")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-65, -65, 65, -65, 65, 65, -65, 65)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6dll3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
 libraries = {
-"": SubResource("AnimationLibrary_vq2wu")
+"": SubResource("AnimationLibrary_ngxuy")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

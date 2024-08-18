@@ -1,11 +1,21 @@
 extends Node2D
 
 var ball_obj = preload("res://Nodes/Ball.tscn")
+
+@onready var red_objects = [$ObstacleR, $ObstacleR2, $ObstacleR3, $ObstacleR4, $ObstacleR5]
+@onready var blue_objects = [$ObstacleB1]
+@onready var green_objects = []
+@onready var yellow_objects = [$ObstacleY1, $ObstacleY2]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.balls = []
 	Global.balls.append($Ball)
-	print(Global.balls)
+	
+	Global.red.connect(red_signal_received)
+	Global.blue.connect(blue_signal_received)
+	Global.green.connect(green_signal_received)
+	Global.yellow.connect(yellow_signal_received)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +37,22 @@ func _on_area_2d_body_entered(body):
 		Global.balls.erase(body)
 		body.queue_free()
 		new_ball()
+
+func red_signal_received():
+	for p in red_objects:
+		p.get_node("AnimationPlayer").play("Expand")
+
+
+func green_signal_received():
+	for p in green_objects:
+		p.get_node("AnimationPlayer").play("Expand")
+
+
+func blue_signal_received():
+	for p in blue_objects:
+		p.get_node("AnimationPlayer").play("Expand")
+
+
+func yellow_signal_received():
+	for p in yellow_objects:
+		p.get_node("AnimationPlayer").play("Expand")

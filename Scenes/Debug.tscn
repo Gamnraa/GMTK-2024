@@ -59,9 +59,9 @@ color = 2
 position = Vector2(1131, 354)
 rotation = -2.35619
 
-[node name="ObstacleY2" parent="." instance=ExtResource("2_lweux")]
-position = Vector2(0, 325)
-rotation = 0.610865
+[node name="ObstacleY2" parent="." instance=ExtResource("6_ibj4d")]
+position = Vector2(2, 345)
+rotation = 0.785398
 
 [node name="ObstacleR" parent="." instance=ExtResource("6_5u6k2")]
 position = Vector2(550, -500)
