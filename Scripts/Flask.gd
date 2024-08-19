@@ -1,5 +1,5 @@
 extends AnimatableBody2D
-var state = 1 #empty, filled, broken
+var state = 0 #empty, filled, broken
 var ball_size = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +26,7 @@ func _on_area_2d_body_entered(body):
 		body.queue_free()
 		Global.scene.new_ball()
 		$BreakBox.monitoring = true
-		$Area2D.monitoring = false
+		$Area2D.set_deferred("monitoring", false)
 		
 
 
