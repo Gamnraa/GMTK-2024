@@ -28,3 +28,7 @@ func change_speed(speed):
 	$Swing.speed_scale = speed
 	print($Swing.speed_scale)
 	$Swing.speed_scale /= 3
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Expand": $AnimationPlayer.play("Shrink")
