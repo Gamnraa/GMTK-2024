@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds1ek756kv0rc"]
+[gd_scene load_steps=11 format=3 uid="uid://ds1ek756kv0rc"]
 
 [ext_resource type="Script" path="res://Scripts/MadScienceLab.gd" id="1_32e0r"]
 [ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
@@ -6,27 +6,76 @@
 [ext_resource type="PackedScene" uid="uid://chyjink4y4l64" path="res://Nodes/Clock.tscn" id="3_c65b1"]
 [ext_resource type="PackedScene" uid="uid://cv5ye4cbiea7k" path="res://Nodes/Pendulum.tscn" id="4_723ej"]
 [ext_resource type="PackedScene" uid="uid://b7v7rcr0onqya" path="res://Nodes/Flask.tscn" id="5_pb07y"]
+[ext_resource type="PackedScene" uid="uid://cty625ei6euq3" path="res://Nodes/Wall.tscn" id="7_yd7ig"]
+[ext_resource type="PackedScene" uid="uid://blx60piksc6kr" path="res://Nodes/Bumper.tscn" id="8_hiqi5"]
+[ext_resource type="PackedScene" uid="uid://dmobv4nr66fml" path="res://Nodes/Paddle.tscn" id="9_60o76"]
+[ext_resource type="PackedScene" uid="uid://crp28goc5t77q" path="res://Nodes/Frog.tscn" id="10_lj5xg"]
 
 [node name="MadScienceLab" type="Node2D"]
 script = ExtResource("1_32e0r")
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
-position = Vector2(56.9999, 175)
-rotation = 0.0890118
+position = Vector2(1831, -2000)
+rotation = -0.261799
 
 [node name="Ball" parent="." instance=ExtResource("2_smw1m")]
-position = Vector2(127, -92)
+position = Vector2(2119, 654)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -600)
-offset = Vector2(575, 325)
-zoom = Vector2(0.3, 0.3)
+position = Vector2(0, -1100)
+offset = Vector2(750, -150)
+zoom = Vector2(0.25, 0.24)
 
 [node name="Clock" parent="." instance=ExtResource("3_c65b1")]
-position = Vector2(-380, 247)
+position = Vector2(1000, -2800)
 
-[node name="Pendulum" parent="." instance=ExtResource("4_723ej")]
-position = Vector2(-388, 515)
+[node name="Pendulum" parent="Clock" instance=ExtResource("4_723ej")]
+position = Vector2(-8, 268)
 
 [node name="Flask" parent="." instance=ExtResource("5_pb07y")]
-position = Vector2(341, 432)
+position = Vector2(1790, -241)
+
+[node name="Wall" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(1958, -2197)
+scale = Vector2(2, 75)
+
+[node name="Wall2" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(2038, 723)
+scale = Vector2(4, 2)
+
+[node name="Wall3" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(2198, -2197)
+scale = Vector2(2, 75)
+
+[node name="Bumper" parent="." instance=ExtResource("8_hiqi5")]
+position = Vector2(1450, 440)
+scale = Vector2(-1, 1)
+
+[node name="Bumper2" parent="." instance=ExtResource("8_hiqi5")]
+position = Vector2(674, 440)
+
+[node name="Wall4" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(1558, -80)
+scale = Vector2(10, 2)
+
+[node name="Paddle" parent="." instance=ExtResource("9_60o76")]
+position = Vector2(1270, 590)
+side = 1
+
+[node name="Paddle2" parent="." instance=ExtResource("9_60o76")]
+position = Vector2(809, 575)
+
+[node name="Wall5" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(142, -80)
+scale = Vector2(10, 2)
+
+[node name="Wall6" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2197)
+scale = Vector2(2, 75)
+
+[node name="Frog" parent="." instance=ExtResource("10_lj5xg")]
+position = Vector2(323, -209)
+
+[node name="Wall7" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(142, -80)
+scale = Vector2(10, 2)
