@@ -39,7 +39,7 @@ func _on_break_box_body_entered(body):
 		for i in range(3):
 			var ball = Global.scene.ball_obj.instantiate()
 			ball.position = position + $BreakBox.get_child(i).position
-			ball.apply_impulse(Vector2(-1000,-100))
+			ball.apply_impulse(Vector2(randi_range(-1000, -2000), randi_range(1000, -1000)))
 			ball.new_size = ball_size
 			
 			Global.balls.append(ball)

@@ -11,11 +11,11 @@
 script = ExtResource("1_32e0r")
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
-position = Vector2(951, 363)
+position = Vector2(56.9999, 175)
 rotation = 0.0890118
 
 [node name="Ball" parent="." instance=ExtResource("2_smw1m")]
-position = Vector2(337, 132)
+position = Vector2(127, -92)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -600)

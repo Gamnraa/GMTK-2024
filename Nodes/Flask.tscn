@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7v7rcr0onqya"]
+[gd_scene load_steps=7 format=3 uid="uid://b7v7rcr0onqya"]
 
 [ext_resource type="Script" path="res://Scripts/Flask.gd" id="1_e0k8g"]
 [ext_resource type="Texture2D" uid="uid://ov52uehc4rjj" path="res://Sprites/vial-256.png" id="1_uxjvf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xf171"]
+friction = 0.0
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb04q"]
 size = Vector2(229, 140)
@@ -14,6 +18,7 @@ size = Vector2(128, 31)
 
 [node name="Flask" type="AnimatableBody2D"]
 scale = Vector2(1.25, 1.25)
+physics_material_override = SubResource("PhysicsMaterial_xf171")
 script = ExtResource("1_e0k8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -75,7 +75,6 @@ _data = {
 }
 
 [node name="RayBeam" type="CharacterBody2D"]
-scale = Vector2(2.5, 2.5)
 motion_mode = 1
 script = ExtResource("1_7xiba")
 
