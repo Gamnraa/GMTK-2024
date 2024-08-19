@@ -3,19 +3,15 @@
 [ext_resource type="Script" path="res://Scripts/Paddle.gd" id="1_bocht"]
 [ext_resource type="Texture2D" uid="uid://cabhm6536q465" path="res://Sprites/paddle.png" id="2_ncxym"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d8xxn"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vn34g"]
 friction = 0.0
-bounce = 5.0
+bounce = 0.22
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsa66"]
 size = Vector2(136.676, 80.4143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7f3t"]
 size = Vector2(449, 880)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vn34g"]
-friction = 0.0
-bounce = 0.22
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j0sml"]
 friction = 0.0
@@ -112,31 +108,35 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".:constant_angular_velocity")
+tracks/6/path = NodePath("Sprite2D:flip_h")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0333334, 0.0666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -1.22173, -1.39626]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:flip_h")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0.0166667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:constant_linear_velocity")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0333334, 0.0666668, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, -700), Vector2(0, -1500), Vector2(0, -600)]
+}
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k73uc"]
 friction = 0.0
 bounce = 4.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d8xxn"]
+friction = 0.0
+bounce = 5.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrgc5"]
 friction = 0.0
@@ -229,10 +229,10 @@ tracks/6/path = NodePath(".:constant_linear_velocity")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.0333333, 0.0666667, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333334, 0.0666668, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -500), Vector2(0, -750), Vector2(0, -250)]
+"values": [Vector2(0, -200), Vector2(0, -700), Vector2(0, -1500), Vector2(0, -600)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -254,20 +254,20 @@ _data = {
 }
 
 [node name="Paddle" type="AnimatableBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_d8xxn")
-constant_linear_velocity = Vector2(0, -749.999)
+physics_material_override = SubResource("PhysicsMaterial_vn34g")
+constant_linear_velocity = Vector2(0, -200)
 script = ExtResource("1_bocht")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(100, -20)
-rotation = 1.0472
+position = Vector2(-63, 0)
+rotation = 0.523599
 texture = ExtResource("2_ncxym")
-offset = Vector2(-63, -5.389)
+offset = Vector2(63, -5.389)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(45, -60)
-rotation = 1.0472
+position = Vector2(-20, 50)
+rotation = 0.523599
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_tsa66")
 
