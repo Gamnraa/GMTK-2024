@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7v7rcr0onqya"]
+[gd_scene load_steps=6 format=3 uid="uid://b7v7rcr0onqya"]
 
+[ext_resource type="Script" path="res://Scripts/Flask.gd" id="1_e0k8g"]
 [ext_resource type="Texture2D" uid="uid://ov52uehc4rjj" path="res://Sprites/vial-256.png" id="1_uxjvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb04q"]
@@ -12,6 +13,8 @@ size = Vector2(20, 90)
 size = Vector2(128, 31)
 
 [node name="Flask" type="AnimatableBody2D"]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_e0k8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uxjvf")
@@ -34,8 +37,22 @@ shape = SubResource("RectangleShape2D_n8ifh")
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_8euv4")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="BreakBox" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+[node name="Node2D" type="Node2D" parent="BreakBox"]
+position = Vector2(-180, 0)
+
+[node name="Node2D2" type="Node2D" parent="BreakBox"]
+position = Vector2(-200, 120)
+
+[node name="Node2D3" type="Node2D" parent="BreakBox"]
+position = Vector2(-100, 200)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BreakBox"]
 position = Vector2(0.5, 64)
 shape = SubResource("RectangleShape2D_qb04q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="BreakBox" to="." method="_on_break_box_body_entered"]
