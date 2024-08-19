@@ -1,10 +1,10 @@
 extends Node
 
-var ingame = false
+var ingame = true
 
 var balls_left = 3
 var balls_active = 1
-var is_waiting_for_ball = false
+var is_waiting_for_ball = true
 var power = 0
 var balls = []
 var score = 0
@@ -14,6 +14,8 @@ signal red
 signal green
 signal blue
 signal yellow
+
+signal pendulum_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,19 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds1ek756kv0rc"]
+[gd_scene load_steps=5 format=3 uid="uid://ds1ek756kv0rc"]
 
 [ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
 [ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="2_smw1m"]
+[ext_resource type="PackedScene" uid="uid://chyjink4y4l64" path="res://Nodes/Clock.tscn" id="3_c65b1"]
+[ext_resource type="PackedScene" uid="uid://cv5ye4cbiea7k" path="res://Nodes/Pendulum.tscn" id="4_723ej"]
 
 [node name="MadScienceLab" type="Node2D"]
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
-position = Vector2(361, 321)
+position = Vector2(875, 427)
 rotation = 0.0890118
 
 [node name="Ball" parent="." instance=ExtResource("2_smw1m")]
-position = Vector2(369, 2)
+position = Vector2(316, -565)
 freeze = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -600)
 offset = Vector2(575, 325)
 zoom = Vector2(0.3, 0.3)
+
+[node name="Clock" parent="." instance=ExtResource("3_c65b1")]
+position = Vector2(296, 327)
+
+[node name="Pendulum" parent="." instance=ExtResource("4_723ej")]
+position = Vector2(288, 595)

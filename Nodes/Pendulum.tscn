@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://7vyrtyg2ruj0"]
+[gd_scene load_steps=11 format=3 uid="uid://cv5ye4cbiea7k"]
 
-[ext_resource type="Script" path="res://Nodes/Pendulum.gd" id="1_1h8w5"]
+[ext_resource type="Script" path="res://Scripts/Pendulum.gd" id="1_oki7n"]
 [ext_resource type="Texture2D" uid="uid://d21yxjw6efq3g" path="res://Sprites/pendulum.png" id="2_4mh1e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bwm6n"]
@@ -114,7 +114,7 @@ size = Vector2(40, 160)
 [node name="Pendulum" type="AnimatableBody2D"]
 position = Vector2(500, 300)
 physics_material_override = SubResource("PhysicsMaterial_bwm6n")
-script = ExtResource("1_1h8w5")
+script = ExtResource("1_oki7n")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -127)
