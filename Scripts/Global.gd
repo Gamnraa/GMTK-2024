@@ -24,7 +24,7 @@ func _ready():
 	
 	randomize()
 	
-	#new_game()
+	new_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,15 +47,18 @@ func _process(delta):
 			yellow.emit()
 			
 		if is_waiting_for_ball and Input.is_action_just_pressed("ui_accept"):
+			print(power)
 			power = Time.get_ticks_msec()
 			
 		if is_waiting_for_ball and Input.is_action_just_released("ui_accept"):
-			balls[0].launch(Vector2(0, min(-30000, -500 * ((Time.get_ticks_msec() - power)/1000 + 1))))
+			print(Time.get_ticks_msec() - power)
+			print(((Time.get_ticks_msec() - power)/1000 + 1))
+			balls[0].launch(Vector2(0, max(-60000, -10000 * ((Time.get_ticks_msec() - power)/100 + 1))))
 
 
 func new_game():
 	
-	scene.free()
+	scene.queue_free()
 	
 	balls_left = 3
 	balls_active = 1
@@ -65,7 +68,7 @@ func new_game():
 	ingame = true
 	#print(balls)
 	get_tree().change_scene_to_file("res://Scenes/MadScienceLab.tscn")
-	scene = get_tree().current_scene
+	#scene = get_tree().current_scene
 	#print(balls)
 	
 	
