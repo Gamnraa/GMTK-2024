@@ -21,7 +21,7 @@ scale = Vector2(1.25, 1.25)
 physics_material_override = SubResource("PhysicsMaterial_xf171")
 script = ExtResource("1_e0k8g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_uxjvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

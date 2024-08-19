@@ -64,7 +64,7 @@ func new_game():
 	score = 0
 	ingame = true
 	#print(balls)
-	get_tree().change_scene_to_file("res://Scenes/Debug.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MadScienceLab.tscn")
 	scene = get_tree().current_scene
 	#print(balls)
 	

@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://crp28goc5t77q"]
+[gd_scene load_steps=10 format=3 uid="uid://crp28goc5t77q"]
 
+[ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_m7pvp"]
 [ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="1_r858f"]
 [ext_resource type="Texture2D" uid="uid://m76157pq5b0" path="res://Sprites/slime_frog.png" id="2_lq8td"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vraon"]
+friction = 0.0
+bounce = 0.98
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q8a0t"]
 shader = ExtResource("1_r858f")
@@ -12,7 +17,7 @@ size = Vector2(33.0545, 20)
 
 [sub_resource type="Animation" id="Animation_nmob2"]
 resource_name = "Expand"
-length = 0.333335
+length = 0.266668
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -36,7 +41,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333, 0.1, 0.15, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(7, 1), Vector2(15, 1), Vector2(40, 1)]
+"values": [Vector2(1, 1), Vector2(7, 1), Vector2(11, 1), Vector2(18, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -48,7 +53,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.1, 0.15, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(5, 1), Vector2(7, 1), Vector2(20, 1)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(5, 1), Vector2(7, 1), Vector2(9, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -57,10 +62,10 @@ tracks/3/path = NodePath("CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.0333333, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(110.536, -66.9066), Vector2(150, -70), Vector2(220, -80), Vector2(400, -105)]
+"values": [Vector2(110.536, -66.9066), Vector2(150, -70), Vector2(250, -85)]
 }
 
 [sub_resource type="Animation" id="Animation_csvaa"]
@@ -89,7 +94,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.166667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(40, 1), Vector2(38, 1), Vector2(1, 1)]
+"values": [Vector2(18, 1), Vector2(16, 1), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,7 +106,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.166667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(20, 1), Vector2(18, 1), Vector2(1, 1)]
+"values": [Vector2(9, 1), Vector2(7, 1), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -113,7 +118,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.166667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(400, -105), Vector2(400, -105), Vector2(110.536, -69)]
+"values": [Vector2(250, -85), Vector2(250, -85), Vector2(110.536, -69)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h3xm3"]
@@ -123,10 +128,8 @@ _data = {
 }
 
 [node name="Frog" type="AnimatableBody2D"]
-
-[node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_q8a0t")
-texture = ExtResource("2_lq8td")
+physics_material_override = SubResource("PhysicsMaterial_vraon")
+script = ExtResource("1_m7pvp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 94.0
@@ -144,11 +147,15 @@ offset_bottom = -58.815
 rotation = -0.13699
 color = Color(0.941176, 0.65098, 0.745098, 1)
 
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q8a0t")
+texture = ExtResource("2_lq8td")
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(130, -130, 125, 130, -100, 130, -130, 100, -130, 10, 0, -130)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(110.536, -69)
+position = Vector2(110.536, -66.9066)
 rotation = -0.139626
 shape = SubResource("RectangleShape2D_y1trm")
 
@@ -156,3 +163,5 @@ shape = SubResource("RectangleShape2D_y1trm")
 libraries = {
 "": SubResource("AnimationLibrary_h3xm3")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
