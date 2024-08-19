@@ -18,10 +18,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0833333),
+"times": PackedFloat32Array(0, 0.0333333, 0.0833335),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1.8, 1.8)]
+"values": [Vector2(1.5, 1.5), Vector2(1.3, 1.3), Vector2(2.5, 2.5)]
 }
 
 [sub_resource type="Animation" id="Animation_m6nyf"]
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.8, 1.8), Vector2(2.5, 2.5), Vector2(1, 1)]
+"values": [Vector2(2.5, 2.5), Vector2(3, 3), Vector2(1.5, 1.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1nnjo"]
@@ -113,6 +113,7 @@ size = Vector2(40, 160)
 
 [node name="Pendulum" type="AnimatableBody2D"]
 position = Vector2(500, 300)
+scale = Vector2(1.5, 1.5)
 physics_material_override = SubResource("PhysicsMaterial_bwm6n")
 script = ExtResource("1_oki7n")
 
