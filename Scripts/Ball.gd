@@ -25,8 +25,9 @@ func _integrate_forces(state):
 	if new_size != size: change_size()
 	#print(state.get_velocity_at_local_position(position))
 	for body in get_colliding_bodies():
-		var anim = body.get_node("AnimationPlayer")
-		var swing = body.get_node("Swing")
+		
+		var anim = body.get_node_or_null("AnimationPlayer")
+		var swing = body.get_node_or_null("Swing")
 		var force = 2
 		if is_instance_valid(swing) and anim.is_playing(): apply_impulse(1.25 * state.get_velocity_at_local_position(position))
 		if is_instance_valid(anim) and anim.is_playing() and anim.current_animation == "Expand":
