@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://chyjink4y4l64"]
+
+[ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_fgcf2"]
+[ext_resource type="Texture2D" uid="uid://7xhl3ehifxyf" path="res://Sprites/clock.png" id="2_3ybvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlhn1"]
+size = Vector2(256, 256)
+
+[node name="Clock" type="AnimatableBody2D"]
+script = ExtResource("1_fgcf2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3ybvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wlhn1")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wlhn1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
