@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 
+[display]
+
+window/size/viewport_width=756
+window/size/viewport_height=964
+window/size/resizable=false
+
 [input]
 
 key_w={
