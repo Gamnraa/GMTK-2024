@@ -1,17 +1,17 @@
 [gd_scene load_steps=17 format=3 uid="uid://dmobv4nr66fml"]
 
 [ext_resource type="Script" path="res://Scripts/Paddle.gd" id="1_bocht"]
-[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="2_xhm43"]
+[ext_resource type="Texture2D" uid="uid://cabhm6536q465" path="res://Sprites/paddle.png" id="2_ncxym"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrgc5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d8xxn"]
 friction = 0.0
-bounce = 2.0
+bounce = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsa66"]
-size = Vector2(130, 30)
+size = Vector2(136.676, 80.4143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7f3t"]
-size = Vector2(353, 617)
+size = Vector2(449, 880)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vn34g"]
 friction = 0.0
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.523599, -0.785398]
+"values": [0.523599, -1.0472]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,10 +56,10 @@ tracks/1/path = NodePath("CollisionShape2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
+"times": PackedFloat32Array(0, 0.0666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.523599, -0.785398]
+"values": [0.523599, -1.0472]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -68,10 +68,10 @@ tracks/2/path = NodePath("CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"times": PackedFloat32Array(0, 0.0333334, 0.0666668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(50, 60), Vector2(60, -20), Vector2(30, -90)]
+"values": [Vector2(-20, 50), Vector2(0, 5), Vector2(-10, -45)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -116,19 +116,31 @@ tracks/6/path = NodePath(".:constant_angular_velocity")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"times": PackedFloat32Array(0, 0.0333334, 0.0666668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -1.22173, -1.39626]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k73uc"]
 friction = 0.0
 bounce = 4.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d8xxn"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrgc5"]
 friction = 0.0
-bounce = 5.0
+bounce = 2.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ddggu"]
 friction = 0.0
@@ -148,7 +160,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.523599, 0.785398]
+"values": [-0.523599, 1.0472]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -160,7 +172,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.523599, 0.785398]
+"values": [-0.523599, 1.0472]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -172,7 +184,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-8, 31), Vector2(-25, -50), Vector2(20, -120)]
+"values": [Vector2(50, 30), Vector2(30, -15), Vector2(45, -60)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -222,6 +234,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, -500), Vector2(0, -750), Vector2(0, -250)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2aggy"]
 _data = {
@@ -230,21 +254,20 @@ _data = {
 }
 
 [node name="Paddle" type="AnimatableBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_vrgc5")
-constant_linear_velocity = Vector2(0, -250)
+physics_material_override = SubResource("PhysicsMaterial_d8xxn")
+constant_linear_velocity = Vector2(0, -749.999)
 script = ExtResource("1_bocht")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(100, -20)
-rotation = 0.785398
-scale = Vector2(2, 0.406)
-texture = ExtResource("2_xhm43")
+rotation = 1.0472
+texture = ExtResource("2_ncxym")
 offset = Vector2(-63, -5.389)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, -120)
-rotation = 0.785398
+position = Vector2(45, -60)
+rotation = 1.0472
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_tsa66")
 
@@ -252,7 +275,7 @@ shape = SubResource("RectangleShape2D_tsa66")
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(53.5, -228.5)
+position = Vector2(101.5, -260)
 shape = SubResource("RectangleShape2D_s7f3t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
