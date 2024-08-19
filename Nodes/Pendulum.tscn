@@ -1,3 +1,154 @@
-[gd_scene format=3 uid="uid://7vyrtyg2ruj0"]
+[gd_scene load_steps=11 format=3 uid="uid://7vyrtyg2ruj0"]
 
-[node name="Pendulum" type="Node2D"]
+[ext_resource type="Script" path="res://Nodes/Pendulum.gd" id="1_1h8w5"]
+[ext_resource type="Texture2D" uid="uid://d21yxjw6efq3g" path="res://Sprites/pendulum.png" id="2_4mh1e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bwm6n"]
+friction = 0.2
+bounce = 1.0
+
+[sub_resource type="Animation" id="Animation_qt75w"]
+resource_name = "Expand"
+length = 0.166668
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="Animation" id="Animation_m6nyf"]
+resource_name = "Shrink"
+length = 0.166668
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.8, 1.8), Vector2(2.5, 2.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nnjo"]
+_data = {
+"Expand": SubResource("Animation_qt75w"),
+"Shrink": SubResource("Animation_m6nyf")
+}
+
+[sub_resource type="Animation" id="Animation_vpief"]
+resource_name = "Swing"
+length = 1.16667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333, 1, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.39626, 1.309, 1.0472, 0.523599, -0.523599, -1.0472, -1.309, -1.39626]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ball:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.583333, 0.666667, 0.833333, 1, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-210, -90), Vector2(-205, -70), Vector2(-180, -20), Vector2(-105, 55), Vector2(0, 85), Vector2(105, 55), Vector2(180, -20), Vector2(205, -70), Vector2(210, -90)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333, 1, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.39626, 1.309, 1.0472, 0.523599, -0.523599, -1.0472, -1.309, -1.39626]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.583333, 0.666667, 0.833333, 1, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1.07177, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-75, -115), Vector2(-73, -107), Vector2(-63, -91), Vector2(-37, -63), Vector2(0, -51), Vector2(37, -63), Vector2(63, -91), Vector2(73, -107), Vector2(75, -115)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smh2w"]
+_data = {
+"Swing": SubResource("Animation_vpief")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35t5y"]
+radius = 57.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaxu6"]
+size = Vector2(40, 160)
+
+[node name="Pendulum" type="AnimatableBody2D"]
+position = Vector2(500, 300)
+physics_material_override = SubResource("PhysicsMaterial_bwm6n")
+script = ExtResource("1_1h8w5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -127)
+rotation = 1.39626
+texture = ExtResource("2_4mh1e")
+offset = Vector2(0, 127)
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(0, -127)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_1nnjo")
+}
+
+[node name="Swing" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_smh2w")
+}
+
+[node name="Ball" type="CollisionShape2D" parent="."]
+position = Vector2(-210, -90)
+shape = SubResource("CircleShape2D_35t5y")
+
+[node name="Arm" type="CollisionShape2D" parent="."]
+position = Vector2(-75, -115)
+rotation = 1.39626
+shape = SubResource("RectangleShape2D_yaxu6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
+[connection signal="animation_finished" from="Swing" to="." method="_on_swing_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
