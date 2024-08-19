@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://blx60piksc6kr"]
+
+[ext_resource type="Texture2D" uid="uid://d0a5jmltm1dwc" path="res://Sprites/bumper.png" id="1_2mcj8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mc8l5"]
+friction = 0.18
+bounce = 0.88
+
+[node name="Bumper" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_mc8l5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mcj8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-65, -115, 25, 75, 25, 115, -20, 115, -115, 15, -115, -115)

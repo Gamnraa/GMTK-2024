@@ -1,20 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://sglemheg4tg8"]
+[gd_scene load_steps=16 format=3 uid="uid://sglemheg4tg8"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacle.gd" id="1_ctfdk"]
-[ext_resource type="Shader" path="res://Scripts/Obstacle.gdshader" id="2_cv4xi"]
-[ext_resource type="Texture2D" uid="uid://pixqpfjb3cje" path="res://icon.svg" id="3_dk2dd"]
+[ext_resource type="Texture2D" uid="uid://bxy6q6lmmxrj4" path="res://Sprites/bubbles.png" id="3_uh247"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bb1dc"]
 friction = 0.5
 bounce = 0.44
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iu7aa"]
-resource_local_to_scene = true
-shader = ExtResource("2_cv4xi")
-shader_parameter/color = 0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_6dll3"]
-radius = 80.0
+radius = 128.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcc6s"]
 friction = 0.15
@@ -58,7 +52,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(4, 4)]
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(2.5, 2.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -70,7 +64,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(4, 4)]
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(2, 2), Vector2(2.6, 2.6)]
 }
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5uile"]
@@ -112,10 +106,10 @@ tracks/1/path = NodePath("Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
+"times": PackedFloat32Array(0, 0.0500001, 0.15, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(5, 5), Vector2(2, 2), Vector2(1, 1)]
+"values": [Vector2(2.5, 2.5), Vector2(3, 3), Vector2(2, 2), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -127,7 +121,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(5, 5), Vector2(2, 2), Vector2(1.4, 1.4)]
+"values": [Vector2(2.5, 2.5), Vector2(3, 3), Vector2(2, 2), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ngxuy"]
@@ -142,8 +136,7 @@ script = ExtResource("1_ctfdk")
 color = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_iu7aa")
-texture = ExtResource("3_dk2dd")
+texture = ExtResource("3_uh247")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6dll3")

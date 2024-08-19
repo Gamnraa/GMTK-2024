@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://civshdmxkibkj"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="1_41c0u"]
 [ext_resource type="Script" path="res://Scripts/Debug.gd" id="1_yb2f0"]
 [ext_resource type="PackedScene" uid="uid://2pucwjb3by2t" path="res://Nodes/Obstacle.tscn" id="2_lweux"]
 [ext_resource type="PackedScene" uid="uid://dmobv4nr66fml" path="res://Nodes/Paddle.tscn" id="4_g2gd7"]
 [ext_resource type="PackedScene" uid="uid://cty625ei6euq3" path="res://Nodes/Wall.tscn" id="5_42r4l"]
-[ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Circle.tscn" id="6_5u6k2"]
+[ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Bubble.tscn" id="6_5u6k2"]
 [ext_resource type="PackedScene" uid="uid://c0optkbcgwkkb" path="res://Nodes/Triangle.tscn" id="6_ibj4d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cei2g"]

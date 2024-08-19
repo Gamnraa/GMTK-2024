@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkh3ofkii1r2f"]
+
+[ext_resource type="Texture2D" uid="uid://bckqe0ib80bee" path="res://Sprites/flies.png" id="1_5hagy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tsxo5"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrnr0"]
+radius = 48.0
+
+[node name="Fly" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_tsxo5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5hagy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jrnr0")
