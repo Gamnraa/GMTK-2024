@@ -26,8 +26,11 @@ func _integrate_forces(state):
 	#print(state.get_velocity_at_local_position(position))
 	for body in get_colliding_bodies():
 		var anim = body.get_node("AnimationPlayer")
+		var swing = body.get_node("Swing")
+		var force = 2
+		if is_instance_valid(swing) and anim.is_playing(): apply_impulse(1.25 * state.get_velocity_at_local_position(position))
 		if is_instance_valid(anim) and anim.is_playing() and anim.current_animation == "Expand":
-			apply_impulse(2 * state.get_velocity_at_local_position(position))
+			apply_impulse(1.66 * state.get_velocity_at_local_position(position))
 
 func launch(force):
 	freeze = false
