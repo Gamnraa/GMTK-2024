@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://mb4b6ujwbs82"]
+
+[ext_resource type="PackedScene" uid="uid://cty625ei6euq3" path="res://Nodes/Wall.tscn" id="1_iedck"]
+
+[node name="Arch" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_iedck")]
+rotation = 0.15708
+scale = Vector2(2, 4)
+
+[node name="Wall3" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(50, -153)
+rotation = 0.314159
+scale = Vector2(2, 4)
+
+[node name="Wall4" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(123, -296)
+rotation = 0.471239
+scale = Vector2(2, 4)
+
+[node name="Wall5" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(217, -426)
+rotation = 0.628319
+scale = Vector2(2, 4)
+
+[node name="Wall6" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(331, -540)
+rotation = 0.785398
+scale = Vector2(2, 4)
+
+[node name="Wall7" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(461, -635)
+rotation = 0.942478
+scale = Vector2(2, 4)
+
+[node name="Wall8" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(605, -708)
+rotation = 1.09956
+scale = Vector2(2, 4)
+
+[node name="Wall9" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(758, -758)
+rotation = 1.25664
+scale = Vector2(2, 4)
+
+[node name="Wall10" parent="." instance=ExtResource("1_iedck")]
+position = Vector2(917, -784)
+rotation = 1.41372
+scale = Vector2(2, 4)

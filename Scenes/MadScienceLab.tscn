@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds1ek756kv0rc"]
+[gd_scene load_steps=18 format=3 uid="uid://ds1ek756kv0rc"]
 
 [ext_resource type="Script" path="res://Scripts/MadScienceLab.gd" id="1_32e0r"]
 [ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
@@ -10,13 +10,28 @@
 [ext_resource type="PackedScene" uid="uid://blx60piksc6kr" path="res://Nodes/Bumper.tscn" id="8_hiqi5"]
 [ext_resource type="PackedScene" uid="uid://dmobv4nr66fml" path="res://Nodes/Paddle.tscn" id="9_60o76"]
 [ext_resource type="PackedScene" uid="uid://crp28goc5t77q" path="res://Nodes/Frog.tscn" id="10_lj5xg"]
+[ext_resource type="PackedScene" uid="uid://mb4b6ujwbs82" path="res://Nodes/Arch.tscn" id="11_vxft3"]
+[ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Bubble.tscn" id="12_eaf4v"]
+[ext_resource type="PackedScene" uid="uid://bkh3ofkii1r2f" path="res://Nodes/Fly.tscn" id="13_fb14p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xh0ax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk4er"]
+size = Vector2(5000, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbtp8"]
+size = Vector2(500, 5000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_180ej"]
+size = Vector2(200, 30)
 
 [node name="MadScienceLab" type="Node2D"]
 script = ExtResource("1_32e0r")
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
-position = Vector2(1831, -2000)
+position = Vector2(1771, -1988)
 rotation = -0.261799
+scale = Vector2(1.5, 1.5)
 
 [node name="Ball" parent="." instance=ExtResource("2_smw1m")]
 position = Vector2(2119, 654)
@@ -27,13 +42,14 @@ offset = Vector2(750, -150)
 zoom = Vector2(0.25, 0.24)
 
 [node name="Clock" parent="." instance=ExtResource("3_c65b1")]
-position = Vector2(1000, -2800)
+position = Vector2(1150, -2700)
 
 [node name="Pendulum" parent="Clock" instance=ExtResource("4_723ej")]
 position = Vector2(-8, 268)
 
 [node name="Flask" parent="." instance=ExtResource("5_pb07y")]
-position = Vector2(1790, -241)
+position = Vector2(1763, -277)
+scale = Vector2(1.6, 1.6)
 
 [node name="Wall" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(1958, -2197)
@@ -42,6 +58,7 @@ scale = Vector2(2, 75)
 [node name="Wall2" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(2038, 723)
 scale = Vector2(4, 2)
+physics_material_override = SubResource("PhysicsMaterial_xh0ax")
 
 [node name="Wall3" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(2198, -2197)
@@ -79,3 +96,93 @@ position = Vector2(323, -209)
 [node name="Wall7" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(142, -80)
 scale = Vector2(10, 2)
+
+[node name="Wall9" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(141, -2196)
+rotation = 0.785398
+scale = Vector2(10, 2)
+
+[node name="Wall10" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(84.9999, -1686)
+rotation = -0.785398
+scale = Vector2(10, 2)
+
+[node name="Wall11" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(86, 291)
+rotation = -0.523599
+scale = Vector2(12, 2)
+
+[node name="Wall8" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(984, -3138)
+scale = Vector2(9, 2)
+
+[node name="Wall12" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(462, 0)
+scale = Vector2(2, 3)
+
+[node name="Wall13" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(1598, 51.0001)
+rotation = 0.523599
+scale = Vector2(12, 2)
+
+[node name="Wall14" parent="." instance=ExtResource("7_yd7ig")]
+position = Vector2(1558, 0)
+scale = Vector2(2, 3)
+
+[node name="Arch" parent="." instance=ExtResource("11_vxft3")]
+position = Vector2(86, -2355)
+
+[node name="Arch2" parent="." instance=ExtResource("11_vxft3")]
+position = Vector2(2251, -2355)
+scale = Vector2(-1, 1)
+
+[node name="BallKill" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallKill"]
+position = Vector2(1033, 1100)
+shape = SubResource("RectangleShape2D_vk4er")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BallKill"]
+position = Vector2(1001, -3428)
+shape = SubResource("RectangleShape2D_vk4er")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BallKill"]
+position = Vector2(-448, -1630)
+shape = SubResource("RectangleShape2D_cbtp8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BallKill"]
+position = Vector2(2860, -1640)
+shape = SubResource("RectangleShape2D_cbtp8")
+
+[node name="FailZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FailZone"]
+position = Vector2(2119, 708)
+shape = SubResource("RectangleShape2D_180ej")
+
+[node name="Obstacle" parent="." instance=ExtResource("12_eaf4v")]
+position = Vector2(1593, -610)
+scale = Vector2(0.33, 0.33)
+
+[node name="Obstacle2" parent="." instance=ExtResource("12_eaf4v")]
+position = Vector2(1774, -870)
+scale = Vector2(0.33, 0.33)
+
+[node name="Obstacle3" parent="." instance=ExtResource("12_eaf4v")]
+position = Vector2(1595, -1112)
+scale = Vector2(0.33, 0.33)
+
+[node name="Fly" parent="." instance=ExtResource("13_fb14p")]
+position = Vector2(550, -744)
+scale = Vector2(0.5, 0.5)
+
+[node name="Fly2" parent="." instance=ExtResource("13_fb14p")]
+position = Vector2(778, -343)
+scale = Vector2(0.5, 0.5)
+
+[node name="Fly3" parent="." instance=ExtResource("13_fb14p")]
+position = Vector2(974, -520)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="BallKill" to="." method="_on_ball_kill_body_entered"]
+[connection signal="body_entered" from="FailZone" to="." method="_on_fail_zone_body_entered"]
