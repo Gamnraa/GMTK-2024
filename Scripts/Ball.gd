@@ -42,6 +42,7 @@ func change_size():
 	$Sprite.scale = Vector2(sizes[new_size][2], sizes[new_size][2])
 	$CollisionShape2D.scale = Vector2(sizes[new_size][2], sizes[new_size][2])
 	size = new_size
+	$SizeCooldown.start()
 
 
 func _on_body_entered(body):

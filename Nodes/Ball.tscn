@@ -22,4 +22,7 @@ texture = ExtResource("1_pv1pj")
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_fmnb2")
 
+[node name="SizeCooldown" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

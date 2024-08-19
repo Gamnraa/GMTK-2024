@@ -24,7 +24,7 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is RigidBody2D: 
+	if body is RigidBody2D and body.get_node("SizeCooldown").is_stopped(): 
 		if color == 0 and body.size < 4: body.new_size += 1
 		if color == 3 and body.size > 0: body.new.size -= 1
 
