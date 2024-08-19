@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ds1ek756kv0rc"]
+[gd_scene load_steps=20 format=3 uid="uid://ds1ek756kv0rc"]
 
 [ext_resource type="Script" path="res://Scripts/MadScienceLab.gd" id="1_32e0r"]
 [ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
 [ext_resource type="PackedScene" uid="uid://mjfasvq6c18d" path="res://Nodes/Ball.tscn" id="2_smw1m"]
+[ext_resource type="Texture2D" uid="uid://5iywjsla0ujq" path="res://Sprites/background.png" id="2_vij3b"]
 [ext_resource type="PackedScene" uid="uid://chyjink4y4l64" path="res://Nodes/Clock.tscn" id="3_c65b1"]
 [ext_resource type="PackedScene" uid="uid://cv5ye4cbiea7k" path="res://Nodes/Pendulum.tscn" id="4_723ej"]
 [ext_resource type="PackedScene" uid="uid://b7v7rcr0onqya" path="res://Nodes/Flask.tscn" id="5_pb07y"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mb4b6ujwbs82" path="res://Nodes/Arch.tscn" id="11_vxft3"]
 [ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Bubble.tscn" id="12_eaf4v"]
 [ext_resource type="PackedScene" uid="uid://bkh3ofkii1r2f" path="res://Nodes/Fly.tscn" id="13_fb14p"]
+[ext_resource type="Texture2D" uid="uid://b8rq6mk03e4an" path="res://Sprites/shelf.png" id="14_6b8vr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xh0ax"]
 
@@ -27,6 +29,13 @@ size = Vector2(200, 30)
 
 [node name="MadScienceLab" type="Node2D"]
 script = ExtResource("1_32e0r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(678, -1302)
+scale = Vector2(50.2031, 32.2813)
+texture = ExtResource("2_vij3b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
 position = Vector2(1771, -1988)
@@ -73,6 +82,7 @@ position = Vector2(674, 440)
 
 [node name="Wall4" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(1558, -80)
+rotation = -0.0523599
 scale = Vector2(10, 2)
 
 [node name="Paddle" parent="." instance=ExtResource("9_60o76")]
@@ -183,6 +193,17 @@ scale = Vector2(0.5, 0.5)
 [node name="Fly3" parent="." instance=ExtResource("13_fb14p")]
 position = Vector2(974, -520)
 scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1758, 128)
+scale = Vector2(1.63281, 1.80469)
+texture = ExtResource("14_6b8vr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(335, 153)
+scale = Vector2(1.61719, 1.80469)
+texture = ExtResource("14_6b8vr")
+flip_h = true
 
 [connection signal="body_entered" from="BallKill" to="." method="_on_ball_kill_body_entered"]
 [connection signal="body_entered" from="FailZone" to="." method="_on_fail_zone_body_entered"]
