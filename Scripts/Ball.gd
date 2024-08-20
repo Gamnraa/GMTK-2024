@@ -4,11 +4,11 @@ var size = 2
 var new_size = 2
 
 var sizes = [ #Mass, Gravity Scale, Scale
-	[3, 1.34, .25],
-	[6, 1.22, .34],
+	[3, 1.34, .24],
+	[6, 1.22, .32],
 	[12, 1.15, .44],
-	[24, .98, .56],
-	[48, .85, .75]
+	[24, .98, .66],
+	[48, .85, .9]
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -27,10 +27,10 @@ func _integrate_forces(state):
 		
 		var anim = body.get_node_or_null("AnimationPlayer")
 		var swing = body.get_node_or_null("Swing")
-		var force = 2
-		if is_instance_valid(swing) and anim.is_playing(): apply_impulse(2 * state.get_velocity_at_local_position(position))
 		if is_instance_valid(anim) and anim.is_playing() and anim.current_animation == "Expand":
 			apply_impulse(3 * state.get_velocity_at_local_position(position))
+		elif is_instance_valid(swing) and anim.is_playing(): apply_impulse(2 * state.get_velocity_at_local_position(position))
+		
 
 func launch(force):
 	freeze = false
