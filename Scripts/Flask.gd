@@ -10,7 +10,7 @@ func _ready():
 	if state == 2:
 		$CollisionShape2D.disabled = true
 		$BreakBox.monitoring = false
-		#change sprite to broken
+		$Sprite.texture = load("res://Sprites/vial_broken-256.png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +35,9 @@ func _on_break_box_body_entered(body):
 		state = 2
 		$CollisionShape2D.set_deferred("disabled", true)
 		$BreakBox.set_deferred("monitoring", false)
-		#change sprite to broken
+		$Sprite.texture = load("res://Sprites/vial_broken-256.png")
+		$CollisionShape2D2.disabled = true
+		$CollisionShape2D3.disabled = true
 		for i in range(3):
 			var ball = Global.scene.ball_obj.instantiate()
 			ball.position = position + $BreakBox.get_child(i).position
