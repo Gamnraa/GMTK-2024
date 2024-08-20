@@ -27,7 +27,7 @@ scale = Vector2(1.11, 1.11)
 polygon = PackedVector2Array(-130, 0, -60, -50, 33, -97, 113, -97, 97, -73, 130, -20, 130, 130, 60, 130, -20, 60, -60, 60)
 
 [node name="DisableTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 12.0
 one_shot = true
 
 [node name="BeamTimer" type="Timer" parent="."]
