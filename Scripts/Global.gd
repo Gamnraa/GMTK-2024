@@ -35,7 +35,12 @@ func _process(delta):
 			is_waiting_for_ball = true
 		
 		if balls_left == 0:
-			pass #gameover
+			ingame = false
+			scene.get_node("Message").show()
+			scene.get_node("Message").get_node("Txt").text = "Game Over! Final Score: " + str(score)
+			await get_tree().create_timer(3.0).timeout
+			scene.get_node("Message").hide()
+			new_game()
 		
 		if Input.is_action_just_pressed("key_s"):
 			red.emit()
@@ -47,13 +52,14 @@ func _process(delta):
 			yellow.emit()
 			
 		if is_waiting_for_ball and Input.is_action_just_pressed("ui_accept"):
-			print(power)
 			power = Time.get_ticks_msec()
+			scene.get_node("Space").get_node("Amt").text = "Release!"   
 			
 		if is_waiting_for_ball and Input.is_action_just_released("ui_accept"):
 			print(Time.get_ticks_msec() - power)
 			print(((Time.get_ticks_msec() - power)/1000 + 1))
 			balls[0].launch(Vector2(0, max(-75000, -7500 * ((Time.get_ticks_msec() - power)/100 + 1))))
+			scene.get_node("Space").get_node("Amt").text = "Hold Space"
 
 
 func new_game():
@@ -68,6 +74,7 @@ func new_game():
 	ingame = true
 	#print(balls)
 	get_tree().change_scene_to_file("res://Scenes/MadScienceLab.tscn")
+	get_tree().reload_current_scene()
 	#scene = get_tree().current_scene
 	#print(balls)
 	
