@@ -37,13 +37,13 @@ func _process(delta):
 		if balls_left == 0:
 			pass #gameover
 		
-		if Input.is_action_just_pressed("key_w"):
-			red.emit()
-		if Input.is_action_just_pressed("key_a"):
-			green.emit()
 		if Input.is_action_just_pressed("key_s"):
-			blue.emit()
+			red.emit()
 		if Input.is_action_just_pressed("key_d"):
+			green.emit()
+		if Input.is_action_just_pressed("key_a"):
+			blue.emit()
+		if Input.is_action_just_pressed("key_w"):
 			yellow.emit()
 			
 		if is_waiting_for_ball and Input.is_action_just_pressed("ui_accept"):
@@ -53,7 +53,7 @@ func _process(delta):
 		if is_waiting_for_ball and Input.is_action_just_released("ui_accept"):
 			print(Time.get_ticks_msec() - power)
 			print(((Time.get_ticks_msec() - power)/1000 + 1))
-			balls[0].launch(Vector2(0, max(-60000, -10000 * ((Time.get_ticks_msec() - power)/100 + 1))))
+			balls[0].launch(Vector2(0, max(-75000, -7500 * ((Time.get_ticks_msec() - power)/100 + 1))))
 
 
 func new_game():
