@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ds1ek756kv0rc"]
+[gd_scene load_steps=24 format=3 uid="uid://ds1ek756kv0rc"]
 
 [ext_resource type="Script" path="res://Scripts/MadScienceLab.gd" id="1_32e0r"]
 [ext_resource type="PackedScene" uid="uid://c0d46735tgsur" path="res://Nodes/RayGun.tscn" id="1_fetwh"]
@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://sglemheg4tg8" path="res://Nodes/Bubble.tscn" id="12_eaf4v"]
 [ext_resource type="PackedScene" uid="uid://bkh3ofkii1r2f" path="res://Nodes/Fly.tscn" id="13_fb14p"]
 [ext_resource type="Texture2D" uid="uid://b8rq6mk03e4an" path="res://Sprites/shelf.png" id="14_6b8vr"]
+[ext_resource type="Texture2D" uid="uid://tjhpuwrr2vab" path="res://Sprites/scoreboard-256.png" id="16_80whj"]
+[ext_resource type="Texture2D" uid="uid://drrm13gds60p" path="res://Sprites/shelf-40.png" id="17_sw52c"]
+[ext_resource type="FontFile" uid="uid://j0mbneutcfav" path="res://DebugMenu.ttf" id="18_qgn2w"]
+[ext_resource type="Texture2D" uid="uid://c1ex26c3cpute" path="res://Sprites/buttons-256.png" id="19_ce0m1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xh0ax"]
 
@@ -35,7 +39,8 @@ position = Vector2(678, -1302)
 scale = Vector2(50.2031, 32.2813)
 texture = ExtResource("2_vij3b")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Frog" parent="." instance=ExtResource("10_lj5xg")]
+position = Vector2(323, -209)
 
 [node name="RayGun" parent="." instance=ExtResource("1_fetwh")]
 position = Vector2(1771, -1988)
@@ -57,7 +62,8 @@ position = Vector2(1150, -2700)
 position = Vector2(-8, 268)
 
 [node name="Flask" parent="." instance=ExtResource("5_pb07y")]
-position = Vector2(1763, -277)
+position = Vector2(1763, -299)
+rotation = -0.0523599
 scale = Vector2(1.6, 1.6)
 
 [node name="Wall" parent="." instance=ExtResource("7_yd7ig")]
@@ -99,9 +105,6 @@ scale = Vector2(10, 2)
 [node name="Wall6" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(61, -2197)
 scale = Vector2(2, 75)
-
-[node name="Frog" parent="." instance=ExtResource("10_lj5xg")]
-position = Vector2(323, -209)
 
 [node name="Wall7" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(142, -80)
@@ -157,7 +160,7 @@ position = Vector2(1001, -3428)
 shape = SubResource("RectangleShape2D_vk4er")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BallKill"]
-position = Vector2(-448, -1630)
+position = Vector2(-450, -1518)
 shape = SubResource("RectangleShape2D_cbtp8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BallKill"]
@@ -187,11 +190,11 @@ position = Vector2(550, -744)
 scale = Vector2(0.5, 0.5)
 
 [node name="Fly2" parent="." instance=ExtResource("13_fb14p")]
-position = Vector2(778, -343)
+position = Vector2(715, -265)
 scale = Vector2(0.5, 0.5)
 
 [node name="Fly3" parent="." instance=ExtResource("13_fb14p")]
-position = Vector2(974, -520)
+position = Vector2(991, -494)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -204,6 +207,489 @@ position = Vector2(335, 153)
 scale = Vector2(1.61719, 1.80469)
 texture = ExtResource("14_6b8vr")
 flip_h = true
+
+[node name="CanvasLayer2" type="Node2D" parent="."]
+
+[node name="Wall" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 626)
+scale = Vector2(2, 4)
+
+[node name="Wall2" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 495)
+scale = Vector2(2, 4)
+
+[node name="Wall3" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 435)
+scale = Vector2(2, 4)
+
+[node name="Wall4" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 304)
+scale = Vector2(2, 4)
+
+[node name="Wall5" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 146)
+scale = Vector2(2, 4)
+
+[node name="Wall6" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 15)
+scale = Vector2(2, 4)
+
+[node name="Wall7" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -45)
+scale = Vector2(2, 4)
+
+[node name="Wall8" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -176)
+scale = Vector2(2, 4)
+
+[node name="Wall9" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -336)
+scale = Vector2(2, 4)
+
+[node name="Wall10" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -467)
+scale = Vector2(2, 4)
+
+[node name="Wall11" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -527)
+scale = Vector2(2, 4)
+
+[node name="Wall12" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -658)
+scale = Vector2(2, 4)
+
+[node name="Wall13" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -816)
+scale = Vector2(2, 4)
+
+[node name="Wall14" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -947)
+scale = Vector2(2, 4)
+
+[node name="Wall15" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1007)
+scale = Vector2(2, 4)
+
+[node name="Wall16" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1138)
+scale = Vector2(2, 4)
+
+[node name="Wall17" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1297)
+scale = Vector2(2, 4)
+
+[node name="Wall18" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1428)
+scale = Vector2(2, 4)
+
+[node name="Wall19" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1488)
+scale = Vector2(2, 4)
+
+[node name="Wall20" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1619)
+scale = Vector2(2, 4)
+
+[node name="Wall21" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1777)
+scale = Vector2(2, 4)
+
+[node name="Wall22" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1908)
+scale = Vector2(2, 4)
+
+[node name="Wall23" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1968)
+scale = Vector2(2, 4)
+
+[node name="Wall24" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2099)
+scale = Vector2(2, 4)
+
+[node name="Wall25" parent="CanvasLayer2" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2195)
+scale = Vector2(2, 4)
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer2"]
+
+[node name="CanvasLayer3" type="Node2D" parent="."]
+position = Vector2(1897, 0)
+
+[node name="Wall" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 626)
+scale = Vector2(2, 4)
+
+[node name="Wall2" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 495)
+scale = Vector2(2, 4)
+
+[node name="Wall3" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 435)
+scale = Vector2(2, 4)
+
+[node name="Wall4" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 304)
+scale = Vector2(2, 4)
+
+[node name="Wall5" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 146)
+scale = Vector2(2, 4)
+
+[node name="Wall6" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 15)
+scale = Vector2(2, 4)
+
+[node name="Wall7" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -45)
+scale = Vector2(2, 4)
+
+[node name="Wall8" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -176)
+scale = Vector2(2, 4)
+
+[node name="Wall9" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -336)
+scale = Vector2(2, 4)
+
+[node name="Wall10" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -467)
+scale = Vector2(2, 4)
+
+[node name="Wall11" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -527)
+scale = Vector2(2, 4)
+
+[node name="Wall12" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -658)
+scale = Vector2(2, 4)
+
+[node name="Wall13" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -816)
+scale = Vector2(2, 4)
+
+[node name="Wall14" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -947)
+scale = Vector2(2, 4)
+
+[node name="Wall15" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1007)
+scale = Vector2(2, 4)
+
+[node name="Wall16" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1138)
+scale = Vector2(2, 4)
+
+[node name="Wall17" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1297)
+scale = Vector2(2, 4)
+
+[node name="Wall18" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1428)
+scale = Vector2(2, 4)
+
+[node name="Wall19" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1488)
+scale = Vector2(2, 4)
+
+[node name="Wall20" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1619)
+scale = Vector2(2, 4)
+
+[node name="Wall21" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1777)
+scale = Vector2(2, 4)
+
+[node name="Wall22" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1908)
+scale = Vector2(2, 4)
+
+[node name="Wall23" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1968)
+scale = Vector2(2, 4)
+
+[node name="Wall24" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2099)
+scale = Vector2(2, 4)
+
+[node name="Wall25" parent="CanvasLayer3" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2195)
+scale = Vector2(2, 4)
+
+[node name="CanvasLayer4" type="Node2D" parent="."]
+position = Vector2(2137, 0)
+
+[node name="Wall" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 626)
+scale = Vector2(2, 4)
+
+[node name="Wall2" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 495)
+scale = Vector2(2, 4)
+
+[node name="Wall3" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 435)
+scale = Vector2(2, 4)
+
+[node name="Wall4" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 304)
+scale = Vector2(2, 4)
+
+[node name="Wall5" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 146)
+scale = Vector2(2, 4)
+
+[node name="Wall6" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, 15)
+scale = Vector2(2, 4)
+
+[node name="Wall7" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -45)
+scale = Vector2(2, 4)
+
+[node name="Wall8" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -176)
+scale = Vector2(2, 4)
+
+[node name="Wall9" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -336)
+scale = Vector2(2, 4)
+
+[node name="Wall10" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -467)
+scale = Vector2(2, 4)
+
+[node name="Wall11" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -527)
+scale = Vector2(2, 4)
+
+[node name="Wall12" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -658)
+scale = Vector2(2, 4)
+
+[node name="Wall13" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -816)
+scale = Vector2(2, 4)
+
+[node name="Wall14" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -947)
+scale = Vector2(2, 4)
+
+[node name="Wall15" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1007)
+scale = Vector2(2, 4)
+
+[node name="Wall16" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1138)
+scale = Vector2(2, 4)
+
+[node name="Wall17" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1297)
+scale = Vector2(2, 4)
+
+[node name="Wall18" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1428)
+scale = Vector2(2, 4)
+
+[node name="Wall19" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1488)
+scale = Vector2(2, 4)
+
+[node name="Wall20" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1619)
+scale = Vector2(2, 4)
+
+[node name="Wall21" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1777)
+scale = Vector2(2, 4)
+
+[node name="Wall22" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1908)
+scale = Vector2(2, 4)
+
+[node name="Wall23" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -1968)
+scale = Vector2(2, 4)
+
+[node name="Wall24" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2099)
+scale = Vector2(2, 4)
+
+[node name="Wall25" parent="CanvasLayer4" instance=ExtResource("7_yd7ig")]
+position = Vector2(61, -2195)
+scale = Vector2(2, 4)
+
+[node name="CanvasLayer" type="Node2D" parent="."]
+rotation = 0.785398
+
+[node name="Sprite2D4" type="TextureRect" parent="CanvasLayer"]
+offset_left = -1454.0
+offset_top = -1652.0
+offset_right = -1249.0
+offset_bottom = -1573.0
+texture = ExtResource("17_sw52c")
+
+[node name="Sprite2D5" type="TextureRect" parent="CanvasLayer"]
+offset_left = -1255.0
+offset_top = -1652.0
+offset_right = -1054.0
+offset_bottom = -1573.0
+texture = ExtResource("17_sw52c")
+
+[node name="CanvasLayer5" type="Node2D" parent="."]
+rotation = -0.785398
+
+[node name="Sprite2D4" type="TextureRect" parent="CanvasLayer5"]
+offset_left = 1248.16
+offset_top = -1132.19
+offset_right = 1453.16
+offset_bottom = -1053.19
+texture = ExtResource("17_sw52c")
+
+[node name="Sprite2D5" type="TextureRect" parent="CanvasLayer5"]
+offset_left = 1447.15
+offset_top = -1132.19
+offset_right = 1648.15
+offset_bottom = -1053.19
+texture = ExtResource("17_sw52c")
+
+[node name="Score" type="TextureRect" parent="."]
+offset_left = -722.0
+offset_top = -3532.0
+offset_right = -32.0
+offset_bottom = -2842.0
+texture = ExtResource("16_80whj")
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -7.0
+offset_right = 257.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 200
+text = "Score"
+
+[node name="Amt" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -268.0
+offset_right = 279.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 200
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="TextureRect" parent="."]
+offset_left = -736.0
+offset_top = 48.0
+offset_right = 2.0
+offset_bottom = 738.0
+texture = ExtResource("16_80whj")
+
+[node name="Amt" type="Label" parent="Space"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -427.0
+offset_right = 366.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 175
+text = "Hold Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Balls" type="TextureRect" parent="."]
+offset_left = -720.0
+offset_top = -2974.0
+offset_right = -30.0
+offset_bottom = -2284.0
+texture = ExtResource("16_80whj")
+
+[node name="Label" type="Label" parent="Balls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -7.0
+offset_right = 257.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 200
+text = "Lives"
+
+[node name="Amt" type="Label" parent="Balls"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -268.0
+offset_right = 279.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 200
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WASD" type="Sprite2D" parent="."]
+position = Vector2(-367, -29.9999)
+scale = Vector2(2.69922, 2.69922)
+texture = ExtResource("19_ce0m1")
+
+[node name="Message" type="Node2D" parent="."]
+visible = false
+position = Vector2(1034, -1262)
+
+[node name="Txt" type="Label" parent="Message"]
+offset_left = -641.0
+offset_top = -445.0
+offset_right = 719.0
+offset_bottom = 696.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_qgn2w")
+theme_override_font_sizes/font_size = 200
+text = "Example"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="body_entered" from="BallKill" to="." method="_on_ball_kill_body_entered"]
 [connection signal="body_entered" from="FailZone" to="." method="_on_fail_zone_body_entered"]

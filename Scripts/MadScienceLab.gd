@@ -22,7 +22,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$Score/Amt.text = str(Global.score)
+	$Balls/Amt.text = str(Global.balls_left)
+	$Space.visible = Global.is_waiting_for_ball
 	
 
 func new_ball():
