@@ -25,8 +25,15 @@ func _on_area_2d_body_entered(body):
 		Global.balls.erase(body)
 		body.queue_free()
 		Global.scene.new_ball()
+		Global.score += 300
+		
 		$BreakBox.monitoring = true
 		$Area2D.set_deferred("monitoring", false)
+		
+		Global.scene.get_node("Message").show()
+		Global.scene.get_node("Message").get_node("Txt").text = "Free Ball!"
+		await get_tree().create_timer(3.0).timeout
+		Global.scene.get_node("Message").hide()
 		
 
 
@@ -36,8 +43,8 @@ func _on_break_box_body_entered(body):
 		$CollisionShape2D.set_deferred("disabled", true)
 		$BreakBox.set_deferred("monitoring", false)
 		$Sprite.texture = load("res://Sprites/vial_broken-256.png")
-		$CollisionShape2D2.disabled = true
-		$CollisionShape2D3.disabled = true
+		$CollisionShape2D2.set_deferred("disabled", true)
+		$CollisionShape2D3.set_deferred("disabled", true)
 		for i in range(3):
 			var ball = Global.scene.ball_obj.instantiate()
 			ball.position = position + $BreakBox.get_child(i).position
