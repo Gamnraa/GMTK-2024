@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cty625ei6euq3"]
+[gd_scene load_steps=5 format=3 uid="uid://cty625ei6euq3"]
 
+[ext_resource type="Script" path="res://Scripts/Wall.gd" id="1_mlciu"]
 [ext_resource type="Texture2D" uid="uid://d0etm563hh4xk" path="res://Sprites/wall-40.png" id="1_narci"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlkdu"]
@@ -11,10 +12,12 @@ size = Vector2(40, 40)
 
 [node name="Wall" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_xlkdu")
+script = ExtResource("1_mlciu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_hslnc")
+one_way_collision_margin = 10.0
 
 [node name="ColorRect" type="TextureRect" parent="."]
 offset_right = 40.0
