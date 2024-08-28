@@ -23,10 +23,10 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xh0ax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk4er"]
-size = Vector2(5000, 500)
+size = Vector2(5000, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbtp8"]
-size = Vector2(500, 5000)
+size = Vector2(2000, 5000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_180ej"]
 size = Vector2(200, 30)
@@ -84,11 +84,11 @@ position = Vector2(1450, 440)
 scale = Vector2(-1, 1)
 
 [node name="Bumper2" parent="." instance=ExtResource("8_hiqi5")]
-position = Vector2(674, 440)
+position = Vector2(666, 440)
 
 [node name="Wall4" parent="." instance=ExtResource("7_yd7ig")]
-position = Vector2(1558, -80)
-rotation = -0.0523599
+position = Vector2(1558, -73)
+rotation = -0.0872665
 scale = Vector2(10, 2)
 
 [node name="Paddle" parent="." instance=ExtResource("9_60o76")]
@@ -96,7 +96,7 @@ position = Vector2(1270, 590)
 side = 1
 
 [node name="Paddle2" parent="." instance=ExtResource("9_60o76")]
-position = Vector2(809, 575)
+position = Vector2(801, 575)
 
 [node name="Wall5" parent="." instance=ExtResource("7_yd7ig")]
 position = Vector2(142, -80)
@@ -152,19 +152,19 @@ scale = Vector2(-1, 1)
 [node name="BallKill" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallKill"]
-position = Vector2(1033, 1100)
+position = Vector2(1016, 1795)
 shape = SubResource("RectangleShape2D_vk4er")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="BallKill"]
-position = Vector2(1001, -3428)
+position = Vector2(1118, -4142)
 shape = SubResource("RectangleShape2D_vk4er")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BallKill"]
-position = Vector2(-450, -1518)
+position = Vector2(-948, -1668)
 shape = SubResource("RectangleShape2D_cbtp8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BallKill"]
-position = Vector2(2860, -1640)
+position = Vector2(3292, -1658)
 shape = SubResource("RectangleShape2D_cbtp8")
 
 [node name="FailZone" type="Area2D" parent="."]
